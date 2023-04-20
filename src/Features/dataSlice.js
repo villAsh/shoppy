@@ -19,8 +19,8 @@ const dataSlice = createSlice({
 export function fetchData(){
     return async function fetchDataThunk(dispatch){
         try{
-            const res = await axios.get('https://mocki.io/v1/a3503fbe-03be-4e74-a268-f8ab6a17e362');
-            const data = await res.data.products;
+            const res = await axios.get('http://localhost:3030/products');
+            const data = await res.data;
             // console.log("data",data)
             dispatch(Products_data(data));
         }catch(error){
