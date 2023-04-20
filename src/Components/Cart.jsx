@@ -1,11 +1,21 @@
 import { useDispatch, useSelector } from "react-redux";
 import { minus, plus, remove } from "../Features/cartSlice";
+import { useEffect, useState } from "react";
 
 export default function Cart() {
     const { cart } = useSelector(state => state);
+    // const [persistCart,setPersistCart] = useState([])
     const dispatch = useDispatch();
-    console.log(cart)
+    // console.log(persistCart)
 
+    // useEffect(() =>{
+    //     const new_cart = JSON.parse(localStorage.getItem('item'));
+    //     if(new_cart){
+    //         setPersistCart(new_cart);
+    //         console.log("persist",new_cart)
+    //     }
+       
+    // },[])
     return (
         cart.length > 0 ?
             <div className="px-5 mt-10">

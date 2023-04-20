@@ -17,7 +17,7 @@ export default function ProductDesc(){
     //to call the api with current product id
     useEffect(() => {
         dispatch(fetchSingleData(id))
-    },[]);
+    },[dispatch,id]);
 
     const addToCart = (item) => {
         const copy_item = {...item}
