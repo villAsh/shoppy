@@ -17,7 +17,13 @@ export default function ProductDesc(){
     //to call the api with current product id
     useEffect(() => {
         dispatch(fetchSingleData(id))
-    },[])
+    },[]);
+
+    const addToCart = (item) => {
+        const copy_item = {...item}
+        copy_item.qty = 1;
+        dispatch(add(copy_item));
+    }
     // console.log(id)
     return(
         <div className="m-5">
@@ -35,7 +41,7 @@ export default function ProductDesc(){
                     <h3 className="text-2xl font-semibold">Original Price : <span className="line-through text-red-500">{singleData?.old_price}  &#36;</span></h3>
                     <h3 className="text-2xl font-semibold">Sale Price : <span className="text-3xl">{singleData?.current_price} </span> &#36;</h3>
                     <h3 className="text-2xl font-semibold bg-indigo-300 px-7 py-2 rounded-full">{singleData?.category}</h3>
-                    <button className="bg-indigo-500 px-8 py-2 rounded-xl text-white text-xl font-semibold" onClick={() => dispatch(add(singleData))}>Add to Cart</button>
+                    <button className="bg-indigo-500 px-8 py-2 rounded-xl text-white text-xl font-semibold" onClick={() => addToCart(singleData)}>Add to Cart</button>
                 </div>
             </div>
         </div>

@@ -19,7 +19,9 @@ export default function Products() {
     //this function will prevent the behaviour of link component.
     const addToCart = (e,item) => {
         e.preventDefault();
-        dispatch(add(item));
+        const copy_item = {...item}
+        copy_item.qty = 1;
+        dispatch(add(copy_item));
     }
 
     //mapping products data into this variable
