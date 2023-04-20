@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../Features/dataSlice";
 import { add } from "../Features/cartSlice";
+import { Link } from "react-router-dom";
 export default function Products() {
     //selecting specific state using useSelector
     const {data} = useSelector((state) => state)
@@ -13,16 +14,25 @@ export default function Products() {
         dispatch(fetchData());
     }, []);
 
-    console.log(data);
+    // console.log(data);
+    
+    //this function will prevent the behaviour of link component.
+    const addToCart = (e,item) => {
+        e.preventDefault();
+        dispatch(add(item));
+    }
 
+    //mapping products data into this variable
     const ProductCard = data?.map((item) => <div key={item.id} className="font-semibold shadow-xl p-5">
+        <Link to={`product/${item.id}`}>
             <img src="" alt="product" className="" />
             <h1 className="text-blue-500 ">{item.name}</h1>
             <h1 className="text-red-500 line-through">{item.old_price}</h1>
             <h1 className="text-blue-500">{item.current_price}</h1>
             {/*onclick we are dispatching an action add which will add the specific item to the cart */}
-            <button onClick={() => dispatch(add(item))}
+            <button onClick={(e) => addToCart(e,item)}
             className="bg-indigo-500 px-6 py-1 rounded-lg text-white font-semibold text-base">Add to Cart</button>
+        </Link>
         </div>
     )
     return (
