@@ -6,7 +6,7 @@ import { add } from "../Features/cartSlice";
 import { Link } from "react-router-dom";
 export default function Products() {
     //selecting specific state using useSelector
-    const {data} = useSelector((state) => state)
+    const {data} = useSelector((state) => state.data)
 
     //to dispatch fetchData action so that we can fetch products data
     const dispatch = useDispatch();
