@@ -8,8 +8,9 @@ import ProductDesc from './Components/ProductDesc';
 function App() {
   return (
     <div className="App">
+            <Router>
       <Navbar />
-      <Router>
+
         <Routes>
         <Route path='' element={<Products />}/>
         <Route path='product/:id' element={<ProductDesc />} />

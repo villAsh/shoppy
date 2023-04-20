@@ -12,10 +12,10 @@ export default function Products() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchData());
-    }, []);
+    }, [dispatch]);
 
     // console.log(data);
-    
+
     //this function will prevent the behaviour of link component.
     const addToCart = (e,item) => {
         e.preventDefault();
