@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { minus, plus, remove } from "../Features/cartSlice";
-import { useEffect, useState } from "react";
+import { BsTrash } from "react-icons/bs";
 
 export default function Cart() {
     const { cart } = useSelector(state => state);
@@ -14,60 +14,44 @@ export default function Cart() {
     //         setPersistCart(new_cart);
     //         console.log("persist",new_cart)
     //     }
-       
+
     // },[])
+
+    //get the total price
+    const getTotal = () => {
+        let total = 0;
+        cart.forEach((item) => {
+            total += item.current_price * item.qty;
+            console.log("total...", total);
+        });
+        return total.toFixed(2)
+    }
     return (
         cart.length > 0 ?
-            <div className="px-5 mt-10">
-                <table className="text-xl font-semibold w-full table-auto">
-                    <thead className="">
-                        <tr className="bg-indigo-400 text-white">
-                            <th className="py-3">Item</th>
-                            <th className="py-3">Name</th>
-                            <th className="py-3">Quantity</th>
-                            <th className="py-3">Price</th>
-                            <th className="py-3">Total</th>
-                            <th className="py-3">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody className="text-center text-blue-400">
-                        {
-                            cart.map((item) => <tr key={item.id}>
-                                <td className="py-3">
-                                    <img src={item.images[0]} alt="product" />
-                                </td>
-                                <td className="py-3">
-                                    {item.name}
-                                </td>
-                                <td className="py-3">
-                                    <button onClick={() => dispatch(minus(item.id))}
-                                     className="px-7 bg-indigo-400 rounded-full text-black mr-1">
-                                        -
-                                    </button>
-                                    {item.qty}
-                                    <button onClick={() => dispatch(plus(item.id))} 
-                                    className="px-7 bg-indigo-400 rounded-full text-black ml-1">
-                                        +
-                                    </button>
-                                </td>
-                                <td className="py-3">
-                                    {item.current_price}
-                                </td>
-                                <td className="py-3">
-                                    {(item.current_price * item.qty).toFixed(2)}
-                                </td>
-                                <td>
-                                    <button onClick={() => dispatch(remove(item.id))}
-                                     className="px-7 py-1 rounded-lg bg-indigo-400 text-white">
-                                        Remove
-                                    </button>
-                                </td>
-                            </tr>
-                            )
+            <div className="px-5 mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+                {
+                    cart.map((item) => <div className="bg-indigo-100 p-5 rounded-lg relative">
+                        <button onClick={() => dispatch(remove(item.id))} 
+                        className="absolute right-1 text-red-500 text-3xl"><BsTrash /></button>
+                        <img src={item.images[0]} className="h-[30vh]" alt="product" />
+                        <h1 className="text-xl">{item.name} </h1>
+                        <h5 className="text-red-600 line-through text-xs">{item.old_price} &#36;</h5>
+                        <marquee className="text-xl">{item.current_price}&#36;</marquee>
+                        <div className="flex justify-between items-center mt-5">
+                            <button onClick={() => dispatch(minus(item.id))} 
+                            className="bg-indigo-500 px-10 py-1 rounded-md font-extrabold">-</button>
+                            <h1>{item.qty}</h1>
+                            <button onClick={() => dispatch(plus(item.id))}
+                            className="bg-indigo-500 px-10 py-1 rounded-md font-extrabold">+</button>
+                        </div>
+                    </div>
+                    )
 
-                        }
-                    </tbody>
-                </table>
+                }
+                <div className="flex flex-col sm:absolute sm:bottom-10 sm:right-10 float-right">
+                    <h1 className="px-7 py-1 bg-blue-200 rounded-xl text-xl font-semibold text-center">Total : <span >{getTotal()} &#36;</span></h1>
+                    <button className="text-center text-white font-semibold px-7 py-1 bg-indigo-400 rounded-lg mt-5">Checkout</button>
+                </div>
             </div>
             :
             <div className="flex items-center justify-center">

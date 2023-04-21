@@ -9,7 +9,6 @@ function App() {
 		<div className="App">
 			<Router>
 				<Navbar />
-
 				<Routes>
 					<Route path="" element={<Products />} />
 					<Route path="product/:id" element={<ProductDesc />} />
