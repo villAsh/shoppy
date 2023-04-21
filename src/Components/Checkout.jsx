@@ -15,7 +15,7 @@ export default function Checkout() {
             <h1 className="text-center md:text-left text-3xl sm:text-5xl font-bold text-slate-700">Checkout <span className="text-indigo-500">Name</span></h1>
             <div className=" mt-10 text-2xl font-semibold text-slate-700">
                 <h1>Billing <span className="text-indigo-500">Details</span></h1>
-                <form className="text-lg border border-slate-700 mt-5 p-5">
+                <form className="text-lg border border-slate-700 mt-5 p-5 mb-5">
                     <div className="flex flex-col sm:flex-row items-center sm:space-x-4">
                         <div className="flex flex-col">
                             <label htmlFor="fn">First Name</label>
@@ -95,7 +95,7 @@ export default function Checkout() {
 
                     <div className="mt-5">
                         <h1>Your <span className="text-indigo-500">Order</span></h1>
-                        <div className="flex flex-col text-base mt-5">
+                        <div className="flex flex-col text-base mt-3">
                             {
                                 cart.map((item) =>
                                     <div className="flex flex-row justify-between" key={item.id}>
@@ -111,7 +111,7 @@ export default function Checkout() {
                         </div>
                         <div className="mt-5">
                             <h5>Payment <span className="text-indigo-500">Method</span></h5>
-                            <div className="mt-5 flex flex-col">
+                            <div className="mt-3 flex flex-col">
                                 <div>
                                     <input type="radio" name="pm"  className="mr-2"  />
                                     <label htmlFor="hd">Home Delivery</label>
