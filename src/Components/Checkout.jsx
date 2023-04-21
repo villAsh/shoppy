@@ -92,27 +92,47 @@ export default function Checkout() {
                                 required />
                         </div>
                     </div>
-               
-                <div className="mt-5">
-                    <h1>Your <span className="text-indigo-500">Order</span></h1>
-                    <div className="flex flex-col text-base mt-5">
-                        {
-                            cart.map((item) => 
-                                <div className="flex flex-row justify-between">
-                                    <h5>{item.name} x {item.qty}</h5>
-                                    <h6>{item.current_price * item.qty} &#36;</h6>
-                                </div>
-                            )
-                        }
-                        <div className="flex flex-row justify-between mt-2 font-bold">
-                            <h5>Total </h5>
-                            <h6>{getTotal()}  &#36;</h6>        
-                        </div>
-                    </div>
+
                     <div className="mt-5">
-                        <h1>Payment <span className="text-indigo-500">Method</span></h1>
+                        <h1>Your <span className="text-indigo-500">Order</span></h1>
+                        <div className="flex flex-col text-base mt-5">
+                            {
+                                cart.map((item) =>
+                                    <div className="flex flex-row justify-between" key={item.id}>
+                                        <h5>{item.name} x {item.qty}</h5>
+                                        <h6>{item.current_price * item.qty} &#36;</h6>
+                                    </div>
+                                )
+                            }
+                            <div className="flex flex-row justify-between mt-2 font-bold">
+                                <h5>Total </h5>
+                                <h6>{getTotal()}  &#36;</h6>
+                            </div>
+                        </div>
+                        <div className="mt-5">
+                            <h5>Payment <span className="text-indigo-500">Method</span></h5>
+                            <div className="mt-5 flex flex-col">
+                                <div>
+                                    <input type="radio" name="pm"  className="mr-2"  />
+                                    <label htmlFor="hd">Home Delivery</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="pm" className="mr-2" />
+                                    <label htmlFor="cc">Credit Card</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="pm" className="mr-2" />
+                                    <label htmlFor="upi">UPI</label>
+                                </div>
+
+                            </div>
+                        </div>
+                       
                     </div>
-                </div>
+                    <div className="text-center mt-5">
+                        <button className="px-8 py-1 bg-indigo-500 rounded-lg text-white">Submit</button>
+                            {/* <input type="submit" className="px-8 py-1 bg-indigo-500 rounded-lg" value="submit"/> */}
+                        </div>
                 </form>
             </div>
         </div>
