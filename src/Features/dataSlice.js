@@ -6,7 +6,8 @@ const dataSlice = createSlice({
 	name: 'data',
 	initialState: {
 		data: [],
-		singleData: []
+		searchData : [],
+		singleData: [],
 	},
 	reducers: {
 		Products_data(state, action) {

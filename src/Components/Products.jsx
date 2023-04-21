@@ -35,7 +35,7 @@ export default function Products() {
             <h1 className="text-blue-500">{item.current_price}</h1>
             {/*onclick we are dispatching an action add which will add the specific item to the cart */}
             <button onClick={(e) => addToCart(e, item)}
-                className="bg-indigo-500 px-6 py-1 rounded-lg text-white font-semibold text-base">Add to Cart</button>
+                className="bg-indigo-500 px-6 py-1 rounded-lg text-white font-semibold text-base ">Add to Cart</button>
         </Link>
     </div>
     )
@@ -45,7 +45,7 @@ export default function Products() {
                 <h1 className="text-center md:text-left text-3xl sm:text-5xl font-bold text-slate-700">Our <span className="text-indigo-500">Products</span></h1>
                 <div className="bg-indigo-200 px-4 py-1 rounded-xl flex items-center text-xl" >
                     <AiOutlineSearch className="mr-2 text-3xl"/>
-                    <input type="text" className="bg-indigo-200 focus:border-none active:border-none"/>
+                    <input type="text" className="bg-indigo-200 focus:outline-none"/>
                 </div>
 
             </div>
