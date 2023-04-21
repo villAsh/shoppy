@@ -1,8 +1,10 @@
 import { useSelector } from "react-redux";
 import CartCard from "./CartCard";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
     const { cart } = useSelector(state => state);
+    const nav = useNavigate();
     // const [persistCart,setPersistCart] = useState([])
 
     // console.log(persistCart)
@@ -39,7 +41,9 @@ export default function Cart() {
                         }
                         <div className="flex flex-col sm:absolute sm:bottom-10 sm:right-10 float-right">
                             <h1 className="px-7 py-1 bg-blue-200 rounded-xl text-xl font-semibold text-center">Total : <span >{getTotal()} &#36;</span></h1>
-                            <button className="text-center text-white font-semibold px-7 py-1 bg-indigo-400 rounded-lg mt-5">Checkout</button>
+                            <button
+                            onClick={() => nav('checkout')}
+                            className="text-center text-white font-semibold px-7 py-1 bg-indigo-400 rounded-lg mt-5">Checkout</button>
                         </div>
                     </div>
                 </div>

@@ -32,7 +32,7 @@ export default function Products() {
                         type="text" 
                         value={term}
                         onChange={(e) => handleChange(e)} 
-                        className="bg-indigo-200 focus:outline-none"/>
+                        className="focus:outline-none bg-indigo-200"/>
                 </div>
 
             </div>
