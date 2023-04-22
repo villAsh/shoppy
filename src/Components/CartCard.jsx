@@ -13,10 +13,14 @@ export default function CartCard({ item }) {
         e.preventDefault();
         dispatch(plus(item.id))
     }
+    const handleDelete = (e,item) =>{
+        e.preventDefault();
+        dispatch(remove(item.id))
+    }
     return (
         <div className="bg-indigo-100 p-5 rounded-lg relative">
             <Link to={`product/${item.id}`}>
-            <button onClick={() => dispatch(remove(item.id))}
+            <button onClick={(e) => handleDelete(e,item)}
                 className="absolute right-1 text-red-500 text-3xl"><BsTrash /></button>
             <img src={item.images[0]} className="h-[30vh]" alt="product" />
             <h1 className="text-xl">{item.name} </h1>
