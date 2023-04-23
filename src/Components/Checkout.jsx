@@ -23,7 +23,7 @@ export default function Checkout() {
     const handleCheckout = (e) =>{
         e.preventDefault();
         console.log(checkout)
-        alert("Your data has been submited!!")
+        alert("Your data has been submited please view console for your details!!")
         setCheckout({
         ...checkout,     
         fn : '',
