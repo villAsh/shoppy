@@ -48,14 +48,14 @@ export default function ProductDesc() {
                     <Slider {...settings} >
                         {
                             singleData.images.map((item,id) => <div key={id}>
-                                <img src={item} alt="product" className="w-auto mx-auto" />
+                                <img src={item} alt="product" className="w-auto h-[50vh] mx-auto" />
                             </div>
                             )
                         }
                      
                     </Slider>
                 </div>
-                <div className="flex flex-col items-start text-slate-700 space-y-5">
+                <div className="mt-20 sm:mt-0 flex flex-col items-start text-slate-700 space-y-5">
                     <h1 className="text-3xl font-semibold">{singleData?.name}</h1>
                     <p className="text-xl text-justify">{singleData?.description}</p>
 

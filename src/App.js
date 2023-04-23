@@ -7,7 +7,7 @@ import Checkout from './Components/Checkout';
 
 function App() {
 	return (
-		<div className="App">
+		<>
 			<Router>
 				<Navbar />
 				<Routes>
@@ -18,7 +18,7 @@ function App() {
 					<Route path='cart/checkout' element={<Checkout />} />
 				</Routes>
 			</Router>
-		</div>
+		</>
 	);
 }
 
