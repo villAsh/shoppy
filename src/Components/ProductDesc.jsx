@@ -55,9 +55,9 @@ export default function ProductDesc() {
                      
                     </Slider>
                 </div>
-                <div className="mt-20 sm:mt-0 flex flex-col items-start text-slate-700 space-y-5">
+                <div className="mt-20 sm:mt-0 flex flex-col justify-center items-start text-slate-700 space-y-5">
                     <h1 className="text-3xl font-semibold">{singleData?.name}</h1>
-                    <p className="text-xl text-justify">{singleData?.description}</p>
+                    <p className="text-lg sm:text-xl text-justify">{singleData?.description}</p>
 
                     <h3 className="text-2xl font-semibold">Original Price : <span className="line-through text-red-500">{singleData?.old_price}  &#36;</span></h3>
                     <h3 className="text-2xl font-semibold">Sale Price : <span className="text-3xl">{singleData?.current_price} </span> &#36;</h3>
