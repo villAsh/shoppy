@@ -47,7 +47,7 @@ export default function ProductDesc() {
                 <div className="sm:mr-10">
                     <Slider {...settings} >
                         {
-                            singleData.images.map((item,id) => <div key={id}>
+                            singleData?.images?.map((item,id) => <div key={id}>
                                 <img src={item} alt="product" className="w-auto h-[50vh] mx-auto" />
                             </div>
                             )
