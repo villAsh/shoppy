@@ -159,8 +159,8 @@ export default function Checkout() {
                             {
                                 cart.map((item) =>
                                     <div className="flex flex-row justify-between" key={item.id}>
-                                        <h5>{item.name} x {item.qty}</h5>
-                                        <h6>{item.current_price * item.qty} &#36;</h6>
+                                        <h5>{item?.name} x {item?.qty}</h5>
+                                        <h6>{item?.current_price * item?.qty} &#36;</h6>
                                     </div>
                                 )
                             }
