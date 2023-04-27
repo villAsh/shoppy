@@ -25,7 +25,7 @@ function App() {
 	return (
 		<>
 			<Router>
-				<Navbar />
+				<Navbar  />
 				<Routes>
 					<Route path="" element={<Register />} />
 					<Route path="/login" element={<Login />} />

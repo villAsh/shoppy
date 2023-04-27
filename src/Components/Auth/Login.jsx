@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { auth,signInWithEmailAndPassword } from "../../firebase-config";
+import { auth, signInWithEmailAndPassword } from "../../firebase-config";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../Features/userSlice";
 import { useNavigate } from "react-router";
@@ -11,13 +11,17 @@ export default function Login() {
     const dispatch = useDispatch();
     const nav = useNavigate();
     const login = () => {
-        signInWithEmailAndPassword(auth,email,password).then(
+        signInWithEmailAndPassword(auth, email, password).then(
             (res) => {
-                dispatch(logIn());
-                nav('/home')   
+                dispatch(logIn({
+                    email: res.user.email,
+                    userId: res.user.uid,
+                    UserName: res.user.displayName
+                }));
+                nav('/home')
             }
         ).catch(error => alert(error))
-        
+
     }
     return (
         <section className="flex items-center justify-center min-h-[90vh]">
@@ -44,6 +48,9 @@ export default function Login() {
                         onClick={login}
                         className="w-full text-center font-semibold py-3 rounded text-black bg-indigo-200 hover:bg-indigo-300 hover:text-white my-1"
                     >Login</button>
+                    <div className="mt-3">
+                        <p>New to shoppy <span className="text-indigo-600 hover:cursor-pointer" onClick={() => nav('/')}>Register here</span></p>
+                    </div>
                 </div>
             </div>
         </section >

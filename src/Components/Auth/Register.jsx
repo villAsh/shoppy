@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { register } from "../../Features/userSlice";
-import { auth, createUserWithEmailAndPassword } from "../../firebase-config";
+import { auth, createUserWithEmailAndPassword,updateProfile } from "../../firebase-config";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 
@@ -25,12 +25,11 @@ export default function Register() {
         else {
             createUserWithEmailAndPassword(auth, email, password).then(
                 (res) => {
-                        dispatch(register({
-                            email: res.user.email,
-                            userId: res.user.uid,
-                            UserName: name
-                        }))
-                        nav('login')
+                    //setting the username so that we can use this is login.
+                    updateProfile(res.user, {
+                        displayName: name,
+                    })
+                    nav('login')
                 }
             ).catch(error => alert(error))
         }
@@ -70,8 +69,11 @@ export default function Register() {
                         onClick={createUser}
                         className="w-full text-center font-semibold py-3 rounded text-black bg-indigo-200 hover:bg-indigo-300 hover:text-white my-1"
                     >Create Account</button>
-
+                      <div className="mt-3">
+                        <p>Already have an <span className="text-indigo-600 hover:cursor-pointer" onClick={() => nav('/login')}>Account</span> ? </p>
+                    </div>
                 </div>
+           
             </div>
         </section >
     );

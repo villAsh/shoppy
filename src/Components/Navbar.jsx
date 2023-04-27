@@ -1,22 +1,40 @@
 import { BsFillCartCheckFill } from 'react-icons/bs'
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Profile from '../Assets/Images/Profile.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { auth } from '../firebase-config';
+import { logout } from '../Features/userSlice';
 export default function Navbar() {
-    const [dropdown ,setDropwdown] = useState(false);
-    const open = () => {
-        setDropwdown(!dropdown);
-    }
+    const [dropdown, setDropwdown] = useState(false);
+    const dispatch = useDispatch();
+    const nav = useNavigate();
     //using cart.length we can check whether the cart has any products or
     const { cart, user } = useSelector((state) => state);
+
+
+    //function for logout.
+    const handleLogout = () => {
+        dispatch(logout());
+        auth.signOut();
+        nav('/login')
+    }
+
     return (
         <div className="bg-blue-50 flex flex-row items-center justify-between">
             <div className="text-indigo-500 text-3xl px-5 py-2 font-bold">
-                <Link to=''>
-                    <h1 ><span className="text-5xl text-indigo-600">S</span>hoppy</h1>
-                </Link>
+                {
+                    user?.isLoggedIn === true ? (
+                        <Link to='/home'>
+                            <h1 ><span className="text-5xl text-indigo-600">S</span>hoppy</h1>
+                        </Link>
+                    ) : (
+                        <Link to=''>
+                            <h1 ><span className="text-5xl text-indigo-600">S</span>hoppy</h1>
+                        </Link>
+                    )
+                }
             </div>
 
             {
@@ -30,22 +48,21 @@ export default function Navbar() {
                             </div>
                         </Link>
                         <div className='flex flex-col items-center justify-center hover:cursor-pointer'>
-                            <img src={Profile} alt='profile' className='w-[8vw] sm:w-[3vw] mr-2' onClick={open} />
+                            <img src={Profile} alt='profile' className='w-[8vw] sm:w-[3vw] mr-2' onClick={() => setDropwdown(!dropdown)} />
                             {
                                 dropdown === true ? (
                                     <div className='bg-blue-50 z-10 px-5 py-1 absolute top-12 right-1 text-indigo-500'>
-                                         <h6 className='mr-3 font-semibold '>{user.user.UserName}</h6>
+                                        <h6 className='mr-3 font-semibold '>{user?.user?.UserName}</h6>
                                         <hr />
-                                        <button className='mt-2 hover:text-red-500'>Logout</button>
+                                        <button onClick={handleLogout} className='mt-2 hover:text-red-500'>Logout</button>
                                     </div>
                                 ) : ''
                             }
-                           
+
                         </div>
                     </div>
                 ) : (
                     <div>
-                        <h1>Login</h1>
                     </div>
                 )
             }
