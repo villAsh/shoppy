@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AiOutlineArrowLeft } from 'react-icons/ai'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchSingleData } from "../Features/dataSlice";
+import { cleanUp, fetchSingleData } from "../Features/dataSlice";
 import { add } from "../Features/cartSlice";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -19,7 +19,11 @@ export default function ProductDesc() {
 
     //to call the api with current product id
     useEffect(() => {
-        dispatch(fetchSingleData(id))
+        dispatch(fetchSingleData(id));
+
+        return () => {
+            dispatch(cleanUp());
+        }
     }, [dispatch, id]);
 
     const addToCart = (item) => {

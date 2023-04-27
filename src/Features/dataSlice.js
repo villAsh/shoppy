@@ -17,6 +17,9 @@ const dataSlice = createSlice({
 		single_product(state, action) {
 			state.singleData = action.payload;
 		},
+		cleanUp(state){
+			state.singleData = []
+		},
 		filterData(state,action){
 			state.data = state.searchData.filter((item) => item.name.toLowerCase().includes(action.payload));
 		}
@@ -51,4 +54,4 @@ export function fetchSingleData(id) {
 }
 //exporting reducers and actions
 export default dataSlice.reducer;
-export const { Products_data, single_product,filterData} = dataSlice.actions;
+export const { Products_data, single_product,filterData,cleanUp} = dataSlice.actions;
