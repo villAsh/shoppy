@@ -1,12 +1,39 @@
 import { useState } from "react";
 
+import { register } from "../../Features/userSlice";
+import { auth, createUserWithEmailAndPassword, updateProfile } from "../../firebase-config";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 export default function Register() {
-    const [name,setName] = useState('');
-    const [email , setEmail] = useState('');
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const dispatch = useDispatch();
+    let nav = useNavigate();
+
 
     const createUser = () => {
-        console.log(name,email,password);
+        if (!name) {
+            alert("Please Enter user name")
+        } else if (email < 5 || !email.includes('@')) {
+            alert("Please Enter valid Email address")
+        }
+        else if (password < 5) {
+            alert("password must be greater than 6 characters")
+        }
+        else {
+            createUserWithEmailAndPassword(auth, email, password).then(
+                (res) => {
+                        dispatch(register({
+                            email: res.user.email,
+                            userId: res.user.uid,
+                            UserName: name
+                        }))
+                        nav('login')
+                }
+            ).catch(error => console.log(error))
+        }
+
     }
     return (
         <section className="flex items-center justify-center min-h-[90vh]">
@@ -19,7 +46,8 @@ export default function Register() {
                         type="text"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="fullname"
-                        placeholder="Full Name" />
+                        placeholder="Full Name"
+                        required={true} />
 
                     <input
                         value={email}
@@ -38,7 +66,7 @@ export default function Register() {
                         placeholder="Password" />
 
                     <button
-                    onClick={createUser}
+                        onClick={createUser}
                         className="w-full text-center font-semibold py-3 rounded text-black bg-indigo-200 hover:bg-indigo-300 hover:text-white my-1"
                     >Create Account</button>
 

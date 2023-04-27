@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 export default function Login(){
+    const [name ,setName] = useState('')
     return(
         <section className="flex items-center justify-center min-h-[90vh]">
         <div className="container max-w-md mx-auto  flex flex-col items-center justify-center px-2 mt-5 border-2 border-indigo-500">

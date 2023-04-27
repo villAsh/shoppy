@@ -14,12 +14,21 @@ import Register from './Components/Auth/Register';
 
 
 function App() {
+	const dispatch = useDispatch();	
+	useEffect(() => {
+		onAuthStateChanged(auth,(userAuth) => {
+			if(userAuth){
+				
+			}
+		})
+	})
 	return (
 		<>
 			<Router>
 				<Navbar />
 				<Routes>
 					<Route path="" element={<Register />} />
+					<Route path="/login" element={<Login />} />
 					<Route path="home" element={<Products />} />
 					<Route path="home/product/:id" element={<ProductDesc />} />
 					<Route path="cart" element={<Cart />} />

@@ -17,7 +17,7 @@ const reducer = combineReducers({
 const persistConfig = {
     key : 'cart',
     storage,
-    blacklist : ['data']
+    blacklist : ['data','user']
 }
 
 //this will give us the persisted reducer.
