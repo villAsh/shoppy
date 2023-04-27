@@ -10,8 +10,8 @@ const userSlice = createSlice({
         register(state,action){
             state.user = action.payload;
         },
-        login(state,action){
-            state.user = action.payload;
+        logIn(state){
+            state.isLoggedIn = true;
         },
         logout(state,action){
             state.user = null;
@@ -20,4 +20,4 @@ const userSlice = createSlice({
 });
 
 export default userSlice.reducer;
-export const {register,logout,login} = userSlice.actions;
+export const {register,logout,logIn} = userSlice.actions;

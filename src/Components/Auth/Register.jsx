@@ -1,9 +1,10 @@
 import { useState } from "react";
-
 import { register } from "../../Features/userSlice";
-import { auth, createUserWithEmailAndPassword, updateProfile } from "../../firebase-config";
+import { auth, createUserWithEmailAndPassword } from "../../firebase-config";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+
+//user identity toolkit api if console is a some POST error
 export default function Register() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -31,7 +32,7 @@ export default function Register() {
                         }))
                         nav('login')
                 }
-            ).catch(error => console.log(error))
+            ).catch(error => alert(error))
         }
 
     }
@@ -47,7 +48,7 @@ export default function Register() {
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="fullname"
                         placeholder="Full Name"
-                        required={true} />
+                         />
 
                     <input
                         value={email}

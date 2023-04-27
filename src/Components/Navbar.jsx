@@ -11,6 +11,7 @@ export default function Navbar() {
                     <h1 ><span className="text-5xl text-indigo-600">S</span>hoppy</h1>
                 </Link>
             </div>
+
             <Link to='cart'>
                 <div className='px-5 text-3xl flex items-center text-slate-800 bg-indigo-300 rounded-xl mr-5'>
 
