@@ -14,6 +14,7 @@ export default function ForgotPass(){
             sendPasswordResetEmail(auth,email);
             alert("please check your email!!")
             setEmail('')
+            nav('/login')
         }
     
     }
