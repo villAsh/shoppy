@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 import Profile from '../Assets/Images/Profile.png';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import { auth } from '../firebase-config';
 import { logout } from '../Features/userSlice';
 export default function Navbar() {
@@ -17,6 +17,7 @@ export default function Navbar() {
     //function for logout.
     const handleLogout = () => {
         dispatch(logout());
+        setDropwdown(false)
         auth.signOut();
         nav('/login')
     }

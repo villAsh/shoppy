@@ -49,6 +49,7 @@ export default function Login() {
                         className="w-full text-center font-semibold py-3 rounded text-black bg-indigo-200 hover:bg-indigo-300 hover:text-white my-1"
                     >Login</button>
                     <div className="mt-3">
+                        <p className="text-indigo-600 hover:cursor-pointer" onClick={() => nav('/forgot_password')}>Forgot Password ?</p>
                         <p>New to shoppy <span className="text-indigo-600 hover:cursor-pointer" onClick={() => nav('/')}>Register here</span></p>
                     </div>
                 </div>

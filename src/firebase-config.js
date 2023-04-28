@@ -3,6 +3,7 @@ import {
     getAuth, 
     createUserWithEmailAndPassword, 
     updateProfile, 
+    sendPasswordResetEmail,
     onAuthStateChanged, 
     signInWithEmailAndPassword, 
     signOut  
@@ -24,6 +25,7 @@ export {
     auth,
     createUserWithEmailAndPassword,
     updateProfile,
+    sendPasswordResetEmail,
     onAuthStateChanged,
     signInWithEmailAndPassword,
     signOut
