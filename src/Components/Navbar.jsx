@@ -1,4 +1,5 @@
-import { BsFillCartCheckFill } from 'react-icons/bs'
+import { BsFillCartCheckFill,} from 'react-icons/bs'
+
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -6,6 +7,7 @@ import Profile from '../Assets/Images/Profile.png';
 import {  useState } from 'react';
 import { auth } from '../firebase-config';
 import { logout } from '../Features/userSlice';
+import Switch from './Switch';
 export default function Navbar() {
     const [dropdown, setDropwdown] = useState(false);
     const dispatch = useDispatch();
@@ -23,7 +25,7 @@ export default function Navbar() {
     }
 
     return (
-        <div className="bg-blue-50 flex flex-row items-center justify-between">
+        <div className="bg-blue-50 flex flex-row items-center justify-between dark:bg-slate-800">
             <div className="text-indigo-500 text-3xl px-5 py-2 font-bold">
                 {
                     user?.isLoggedIn === true ? (
@@ -41,6 +43,7 @@ export default function Navbar() {
             {
                 user?.isLoggedIn === true ? (
                     <div className='flex flex-row items-center float-right relative'>
+                        <Switch />
                         <Link to='cart'>
                             <div className='px-5 text-3xl flex items-center text-slate-800 bg-indigo-300 rounded-xl mr-5'>
 

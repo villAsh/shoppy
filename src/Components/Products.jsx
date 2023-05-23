@@ -23,9 +23,9 @@ export default function Products() {
         dispatch(filterData(e.target.value))
     }
     return (
-        <div className="my-5 px-5">
+        <div className="py-5 px-5 dark:bg-slate-900">
             <div className="flex flex-col sm:flex-row items-center justify-between">
-                <h1 className="text-center md:text-left text-lg sm:text-xl md:text-5xl font-bold text-slate-700">Our <span className="text-indigo-500">Products</span></h1>
+                <h1 className="text-center md:text-left text-lg sm:text-xl md:text-5xl font-bold text-slate-700 dark:text-white">Our <span className="text-indigo-500">Products</span></h1>
                 <div className="bg-indigo-200 px-4 py-1 rounded-xl flex items-center text-xl" >
                     <AiOutlineSearch className="mr-2 text-3xl"/>
                     <input 

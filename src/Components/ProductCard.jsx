@@ -10,7 +10,7 @@ export default function ProductCard({ item }) {
         dispatch(add(copy_item));
     }
     return (
-        <div className="font-semibold shadow-2xl p-5 sm:mt-10 mt-0">
+        <div className="font-semibold shadow-2xl p-5 sm:mt-10 mt-0 dark:bg-slate-200 dark:rounded-xl">
             <Link to={`product/${item.id}`}>
                 <div className="">
                     <img src={item?.images[0]} alt="product" className="w-auto h-[28vh] mx-auto" />
