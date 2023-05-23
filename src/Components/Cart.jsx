@@ -30,8 +30,8 @@ export default function Cart() {
     return (
         cart.length > 0 ?
             (
-                <div className="px-5 mt-10">
-                    <h1 className="text-center md:text-left text-3xl sm:text-5xl font-bold text-slate-700">Your <span className="text-indigo-500">Cart</span></h1>
+                <div className="px-5 pt-10 dark:bg-slate-900">
+                    <h1 className="text-center md:text-left text-3xl sm:text-5xl font-bold text-slate-700 dark:text-white">Your <span className="text-indigo-500">Cart</span></h1>
                     <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
 
                         {
@@ -50,8 +50,8 @@ export default function Cart() {
             )
             :
             (
-                <div className="flex items-center justify-center">
-                    <h1 className="text-5xl font-bold text-black mt-72">Cart is empty</h1>
+                <div className="md:h-[90vh] flex items-center justify-center dark:bg-slate-900 ">
+                    <h1 className="text-5xl font-bold text-black mt-72 dark:text-white">Cart is empty</h1>
                 </div>
             )
     )
