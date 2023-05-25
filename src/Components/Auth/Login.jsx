@@ -1,8 +1,8 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { auth, signInWithEmailAndPassword } from "../../firebase-config";
 import { useDispatch } from "react-redux";
-import { logIn } from "../../Features/userSlice";
+import { logIn, logout } from "../../Features/userSlice";
 import { useNavigate } from "react-router";
 
 export default function Login() {
@@ -10,6 +10,10 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
     const nav = useNavigate();
+
+    useEffect(() => {
+        dispatch(logout());
+    },[])
     const login = () => {
         signInWithEmailAndPassword(auth, email, password).then(
             (res) => {

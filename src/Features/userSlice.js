@@ -8,12 +8,12 @@ const userSlice = createSlice({
     },
     reducers : {
         logIn(state,action){
-            state.user = action.payload
+            state.user = action.payload;
             state.isLoggedIn = true;
         },
         logout(state){
-            state.user = null
-            state.isLoggedIn = false
+            state.user = null;
+            state.isLoggedIn = false;
         }
     }
 });
