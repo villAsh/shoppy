@@ -3,10 +3,10 @@ import { BsFillCartCheckFill,} from 'react-icons/bs'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
-import Profile from '../Assets/Images/Profile.png';
+import Profile from '../../Assets/Images/Profile.png';
 import {  useState } from 'react';
-import { auth } from '../firebase-config';
-import { logout } from '../Features/userSlice';
+import { auth } from '../../firebase-config';
+import { logout } from '../../Features/userSlice';
 import Switch from './Switch';
 export default function Navbar() {
     const [dropdown, setDropwdown] = useState(false);
