@@ -5,6 +5,18 @@
   <b>Firebase</b>.<br>
   It allows user to <b>Sign In </b> or <b>Sign Up</b>,<b>Forgot Password </b> etc.. which is implemented Using Firebase.<br>
 </p>
+<h2>Features</h2>
+<ul>
+  <li>Sign In or Sign Up</li>
+  <li>Forgot Password</li>
+  <li>Shimmer Effect</li>
+  <li>View Different Products.</li>
+  <li>Search Products</li>
+  <li>Add to Cart</li>
+  <li>Remove from Cart</li>
+  <li>Empty Cart</li>
+  <li>Checkout</li>
+</ul>
 <h4>Live <a href="https://shoppy-villash.vercel.app/" >Demo</a></h4>
 
 ## Available Scripts
