@@ -1,17 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { auth, createUserWithEmailAndPassword,updateProfile } from "../../firebase-config";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import { logout } from "../../Features/userSlice";
 
 //user identity toolkit api if console is a some POST error
 export default function Register() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     let nav = useNavigate();
 
 
+    useEffect(() => {
+        dispatch(logout());
+    },[])
     const createUser = () => {
         if (!name) {
             alert("Please Enter user name")
