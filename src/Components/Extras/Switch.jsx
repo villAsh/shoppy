@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useDarkSide from "../Hooks/useDarkSide";
+import useDarkSide from "../../Hooks/useDarkSide";
 import { BsMoon, BsCloudSunFill } from "react-icons/bs";
 
 export default function Switch() {

@@ -22,7 +22,7 @@ export default function Cart() {
     const getTotal = () => {
         let total = 0;
         cart.forEach((item) => {
-            total += item.current_price * item.qty;
+            total += item.price * item.qty;
             console.log("total...", total);
         });
         return total.toFixed(2)

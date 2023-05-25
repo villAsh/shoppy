@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { clear } from "../Features/cartSlice";
+import { clear } from "../../Features/cartSlice";
 
 export default function Checkout() {
     const { cart } = useSelector(state => state);
+    const {UserName} = useSelector(state => state.user.user)
     const nav = useNavigate();
     const dispatch = useDispatch();
     const [checkout,setCheckout] = useState({
@@ -48,14 +49,14 @@ export default function Checkout() {
     const getTotal = () => {
         let total = 0;
         cart.forEach((item) => {
-            total += item.current_price * item.qty;
+            total += item.price * item.qty;
         });
         return total.toFixed(2)
     }
     return (
-        <div className="px-5 mt-10 flex flex-col justify-center items-center">
-            <h1 className="text-center md:text-left text-3xl sm:text-5xl font-bold text-slate-700">Checkout <span className="text-indigo-500">Name</span></h1>
-            <div className=" mt-10 text-2xl font-semibold text-slate-700">
+        <div className="px-5 pt-10 flex flex-col justify-center items-center dark:bg-slate-900">
+            <h1 className="text-center md:text-left text-3xl sm:text-5xl font-bold text-slate-700 dark:text-white">Checkout <span className="text-indigo-500">{UserName}</span></h1>
+            <div className=" mt-10 text-2xl font-semibold text-slate-700 dark:text-white">
                 <h1>Billing <span className="text-indigo-500">Details</span></h1>
                 <form method="post" className="text-lg border border-slate-700 mt-5 p-5 mb-5" onSubmit={handleCheckout}>
                     <div className="flex flex-col sm:flex-row items-center sm:space-x-4">
@@ -160,7 +161,7 @@ export default function Checkout() {
                                 cart.map((item) =>
                                     <div className="flex flex-row justify-between" key={item.id}>
                                         <h5>{item?.name} x {item?.qty}</h5>
-                                        <h6>{item?.current_price * item?.qty} &#36;</h6>
+                                        <h6>{item?.price * item?.qty} &#36;</h6>
                                     </div>
                                 )
                             }
@@ -189,7 +190,7 @@ export default function Checkout() {
                         </div>
                        
                     </div>
-                    <div className="text-center mt-5">
+                    <div className="text-center mt-5  cursor-pointer" >
                         <button className="px-8 py-1 bg-indigo-500 rounded-lg text-white" ><input type="submit" value="submit"/></button>
                             {/* <input type="submit" className="px-8 py-1 bg-indigo-500 rounded-lg" value="submit"/> */}
                         </div>
