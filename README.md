@@ -3,13 +3,9 @@
   Shoppy is a shopping cart project which is Created using <b>ReactJS</b>,<b>TailwindCSS</b>,
   <b>Redux Toolkit</b>,
   <b>Firebase</b>.<br>
-  It allows user to <b>Sign In </b> or <b>Sign Up</b>,<b>Forgot Password</b>etc.. which is implemented Using Firebase.<br>
+  It allows user to <b>Sign In </b> or <b>Sign Up</b>,<b>Forgot Password </b> etc.. which is implemented Using Firebase.<br>
 </p>
 <h4>Live <a href="https://shoppy-villash.vercel.app/" >Demo</a></h4>
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 
 ## Available Scripts
 
