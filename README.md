@@ -19,6 +19,11 @@
 </ul>
 <h4>Live <a href="https://shoppy-villash.vercel.app/" >Demo</a></h4>
 
+<p>
+  Test Credentials : <br>
+  email : chavhanvilas02@gmail.com <br>
+  password : IAMVILAS@123
+</p>
 ## Available Scripts
 
 In the project directory, you can run:
